@@ -8,8 +8,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { Globe } from "lucide-react"
-import { routing } from "@/src/i18n/routing"
-import { usePathname, useRouter } from "@/src/i18n/navigation"
+import { routing } from "@/i18n/routing"
+import { usePathname, useRouter } from "@/i18n/navigation"
 import { startTransition } from "react"
 import { useParams } from "next/navigation"
 

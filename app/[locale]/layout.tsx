@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { NextIntlClientProvider } from "next-intl"
+import { hasLocale, NextIntlClientProvider } from "next-intl"
 import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageSwitcher } from "@/components/language-switcher"
+import { routing } from "@/i18n/routing"
+import { notFound } from "next/navigation"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,16 +19,16 @@ export const metadata: Metadata = {
 }
 
 type Props = {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: Props) {
-  const { locale } = await params;
-  
+export default async function RootLayout({ children, params }: Props) {
+  const { locale } = await params
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.variable} font-sans`}>
