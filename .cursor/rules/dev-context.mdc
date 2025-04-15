@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+ * Project: TrekRoll
+ * Description: TikTok-inspired short video travel platform built as a web app.
+ * Framework: Next.js 14+ (App Router with Turbopack)
+ * Language: TypeScript
+ * Styling: Tailwind CSS
+ * Component Library: shadcn
+ * State Management: Zustand
+ * Form Handling: React Hook Form + Zod
+ * Data Fetching: TanStack Query
+ * Internationalization: next-intl (English & Burmese)
+ * Routing: App Router (No src dir)
+ * Fonts: Utility classes only (heading-h1 to h6, body-xs to lg). Add more font classes if necessary
+
+ - Use aliases via `@/*`
+ - Use `next-intl` for text content
+ - Stick to TanStack Query for all data-fetching logic
+ - Skeleton UI + Empty + Error states for every async fetch
+ - Prefer Zustand for global state
+ - Always use font utility classes, avoid hard-coded styles
+ - Shadcan package is called shadcn, not shadcn-ui
+ - If a component or a page file become too long separate new components (Max line 300)
+ - Write a unit test after a feature is implemented
