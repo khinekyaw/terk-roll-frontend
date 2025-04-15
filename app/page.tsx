@@ -1,9 +1,6 @@
-import { Button } from "@/components/ui/button";
+import {redirect} from 'next/navigation';
 
-export default function Home() {
-  return (
-    <main className="min-h-screen p-8">
-      <Button>Button</Button>
-    </main>
-  );
+// This page only renders when the app is built statically (output: 'export')
+export default function RootPage() {
+  redirect('/en');
 }
