@@ -4,5 +4,22 @@
   },
   "common": {
     "login": "Login"
+  },
+  "Navigation": {
+    "search": "Search videos...",
+    "forYou": "For You",
+    "explore": "Explore",
+    "profile": "Profile",
+    "more": "More"
+  },
+  "More": {
+    "title": "More",
+    "darkMode": "Dark mode",
+    "language": "Language",
+    "help": "Feedback and help"
+  },
+  "Common": {
+    "switchTheme": "Switch theme",
+    "switchLanguage": "Switch language"
   }
 }

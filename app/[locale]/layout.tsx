@@ -3,8 +3,7 @@ import { Inter } from "next/font/google"
 import { hasLocale, NextIntlClientProvider } from "next-intl"
 import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { LanguageSwitcher } from "@/components/language-switcher"
+import { Sidebar } from "@/components/sidebar"
 import { routing } from "@/i18n/routing"
 import { notFound } from "next/navigation"
 
@@ -39,11 +38,10 @@ export default async function RootLayout({ children, params }: Props) {
             enableSystem
             disableTransitionOnChange
           >
-            <div className="fixed right-4 top-4 flex gap-2">
-              <LanguageSwitcher />
-              <ThemeToggle />
-            </div>
-            {children}
+            <Sidebar />
+            <main className="pl-[72px] lg:pl-[240px]">
+              {children}
+            </main>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
