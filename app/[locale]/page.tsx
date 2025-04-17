@@ -17,7 +17,7 @@ export default function Home({params}:Props) {
   const t = useTranslations('common');
 
   return (
-    <main className="min-h-screen p-8">
+    <main>
       <Button>{t("login")}</Button>
     </main>
   );
