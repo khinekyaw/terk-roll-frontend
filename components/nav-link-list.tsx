@@ -1,17 +1,19 @@
 import { useTranslations } from "next-intl"
-import { 
+import {
   HiOutlineHome,
   HiHome,
   HiOutlineGlobeAlt,
   HiGlobeAlt,
   HiOutlineUser,
   HiUser,
-  HiEllipsisHorizontal
+  HiEllipsisHorizontal,
 } from "react-icons/hi2"
 import { SidebarNavLink } from "./sidebar-nav-link"
+import { useSidebarStore } from "@/lib/store/sidebar-store"
 
 const NavLinkList = () => {
   const t = useTranslations("Navigation")
+  const { toggleSidebarSheetOpen } = useSidebarStore()
 
   return (
     <nav className="space-y-[0.875rem]">
@@ -37,7 +39,7 @@ const NavLinkList = () => {
         icon={HiEllipsisHorizontal}
         activeIcon={HiEllipsisHorizontal}
         title={t("more")}
-        href=""
+        onClick={toggleSidebarSheetOpen}
       />
     </nav>
   )
