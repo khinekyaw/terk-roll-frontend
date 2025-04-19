@@ -9,11 +9,10 @@ import {
   HiEllipsisHorizontal,
 } from "react-icons/hi2"
 import { SidebarNavLink } from "./sidebar-nav-link"
-import { useSidebarStore } from "@/lib/store/sidebar-store"
+import { SidebarNavButton } from "@/components/sidebar-nav-button"
 
 const NavLinkList = () => {
   const t = useTranslations("Navigation")
-  const { toggleSidebarSheetOpen } = useSidebarStore()
 
   return (
     <nav className="space-y-[0.875rem]">
@@ -35,12 +34,12 @@ const NavLinkList = () => {
         title={t("profile")}
         href="/profile"
       />
-      <SidebarNavLink
+      <SidebarNavButton
         id="sidebar-more"
+        title={t("more")}
         icon={HiEllipsisHorizontal}
         activeIcon={HiEllipsisHorizontal}
-        title={t("more")}
-        onClick={toggleSidebarSheetOpen}
+        className="w-full"
       />
     </nav>
   )

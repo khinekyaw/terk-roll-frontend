@@ -1,13 +1,16 @@
 import { create } from "zustand"
 
 interface SidebarState {
+  sidebarSheetContentId: string
+  setSidebarSheetContentId: (id: string) => void
   sidebarSheetOpen: boolean
-  setSidebarSheetOpen: (open: boolean) => void
-  toggleSidebarSheetOpen: () => void
 }
 
-export const useSidebarStore = create<SidebarState>((set) => ({
+export const useSidebarStore = create<SidebarState>((set, get) => ({
+  sidebarSheetContentId: "",
+  setSidebarSheetContentId: (id) => set({ 
+    sidebarSheetContentId: get().sidebarSheetContentId === id ? "" : id,
+    sidebarSheetOpen: get().sidebarSheetContentId !== id
+  }),
   sidebarSheetOpen: false,
-  setSidebarSheetOpen: (open) => set({ sidebarSheetOpen: open }),
-  toggleSidebarSheetOpen: () => set((state) => ({ sidebarSheetOpen: !state.sidebarSheetOpen })),
 })) 

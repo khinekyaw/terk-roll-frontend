@@ -1,49 +1,39 @@
 import { useSidebarStore } from "@/lib/store/sidebar-store"
 import { cn } from "@/lib/utils"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { ComponentPropsWithoutRef } from "react"
 import { IconType } from "react-icons"
 
-interface SidebarNavLinkProps extends ComponentPropsWithoutRef<'a'> {
+interface SidebarNavButtonProps extends ComponentPropsWithoutRef<'button'> {
   icon: IconType
-  activeIcon: IconType
   title: string
-  href?: string
   className?: string
-  onClick?: () => void
+  activeIcon: IconType
+  id:string
 }
 
-export function SidebarNavLink({
+export function SidebarNavButton({
+  id,
   icon: Icon,
   activeIcon: ActiveIcon,
   title,
-  href,
   className,
   ...props
-}: SidebarNavLinkProps) {
-  const pathname = usePathname()
-  const { sidebarSheetOpen } = useSidebarStore()
-  const isActive = pathname === href
-
-  const IconComponent = isActive ? ActiveIcon : Icon
+}: SidebarNavButtonProps) {
+  const { sidebarSheetOpen, sidebarSheetContentId } = useSidebarStore()
+  const IconComponent = sidebarSheetContentId === id ? ActiveIcon : Icon
 
   return (
-    <Link
-      href={href || ""}
+    <button
       className={cn(
         // Base styles
         "typo-heading-h6 flex items-center gap-x-4 py-3 rounded-lg transition-colors",
         "hover:bg-accent",
         // Icon-only state (mobile/collapsed)
         "lg:px-2 lg:py-2",
-        // Active state
-        isActive && "text-primary",
         // Collapsed state when sidebar sheet is open
         sidebarSheetOpen && "w-10 justify-center",
         className
       )}
-
       {...props}
     >
       <IconComponent className="h-6 w-6 shrink-0 transition-colors" />
@@ -55,6 +45,6 @@ export function SidebarNavLink({
       >
         {title}
       </span>
-    </Link>
+    </button>
   )
-}
+} 
