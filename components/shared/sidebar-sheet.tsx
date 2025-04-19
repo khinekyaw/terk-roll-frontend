@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react"
 
 import { useSidebarStore } from "@/lib/store/sidebar-store"
 import { cn } from "@/lib/utils"
-import { Input } from "./ui/input"
+import { Input } from "@/components/ui/input"
 
 const SidebarSheetHeader = ({ title }: { title?: string }) => {
   const { setSidebarSheetContentId } = useSidebarStore()

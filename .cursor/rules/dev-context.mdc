@@ -16,7 +16,7 @@ alwaysApply: true
  * Routing: App Router (No src dir)
  * Fonts: Utility classes only (heading-h1 to h6, body-xs to lg). Add more font classes if necessary
 
- - Use aliases via `@/*`
+ - Use aliases via `@/*`. example use '@/components/button' instead of '../../../components/button'
  - Use `next-intl` for text content
  - Stick to TanStack Query for all data-fetching logic
  - Skeleton UI + Empty + Error states for every async fetch
