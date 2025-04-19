@@ -1,3 +1,5 @@
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Locale, useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -19,6 +21,8 @@ export default function Home({params}:Props) {
   return (
     <main>
       <Button>{t("login")}</Button>
+      <ThemeToggle />
+      <LanguageSwitcher />
     </main>
   );
 } 

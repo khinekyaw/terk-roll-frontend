@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { ComponentPropsWithoutRef } from "react"
 import { IconType } from "react-icons"
 
-interface SidebarNavLinkProps extends ComponentPropsWithoutRef<'a'> {
+interface SidebarNavLinkProps extends ComponentPropsWithoutRef<"a"> {
   icon: IconType
   activeIcon: IconType
   title: string
@@ -20,16 +20,19 @@ export function SidebarNavLink({
   title,
   href,
   className,
+  id,
   ...props
 }: SidebarNavLinkProps) {
   const pathname = usePathname()
-  const { sidebarSheetOpen } = useSidebarStore()
-  const isActive = pathname === href
+  const { sidebarSheetOpen, sidebarSheetContentId } = useSidebarStore()
+  const isActive =
+    (pathname === href && !sidebarSheetOpen) || sidebarSheetContentId === id
 
   const IconComponent = isActive ? ActiveIcon : Icon
 
   return (
     <Link
+      id={id}
       href={href || ""}
       className={cn(
         // Base styles
@@ -43,13 +46,12 @@ export function SidebarNavLink({
         sidebarSheetOpen && "w-10 justify-center",
         className
       )}
-
       {...props}
     >
-      <IconComponent className="h-6 w-6 shrink-0 transition-colors" />
+      <IconComponent className="h-6 w-6 shrink-0 transition-colors pointer-events-none" />
       <span
         className={cn(
-          "hidden lg:block shrink-0 w-fit",
+          "hidden lg:block shrink-0 w-fit pointer-events-none",
           sidebarSheetOpen && "hidden lg:hidden"
         )}
       >

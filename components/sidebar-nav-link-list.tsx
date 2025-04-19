@@ -1,18 +1,20 @@
 import { useTranslations } from "next-intl"
 import {
-  HiOutlineHome,
+  HiGlobeAlt,
   HiHome,
   HiOutlineGlobeAlt,
-  HiGlobeAlt,
+  HiOutlineHome,
   HiOutlineUser,
   HiUser,
-  HiEllipsisHorizontal,
 } from "react-icons/hi2"
-import { SidebarNavLink } from "./sidebar-nav-link"
-import { SidebarNavButton } from "@/components/sidebar-nav-button"
+import { LuEllipsis } from "react-icons/lu"
 
-const NavLinkList = () => {
+import { useSidebarStore } from "@/lib/store/sidebar-store"
+import { SidebarNavLink } from "./sidebar-nav-link"
+
+const SidebarNavLinkList = () => {
   const t = useTranslations("Navigation")
+  const { setSidebarSheetContentId } = useSidebarStore()
 
   return (
     <nav className="space-y-[0.875rem]">
@@ -34,15 +36,16 @@ const NavLinkList = () => {
         title={t("profile")}
         href="/profile"
       />
-      <SidebarNavButton
+      <SidebarNavLink
         id="sidebar-more"
         title={t("more")}
-        icon={HiEllipsisHorizontal}
-        activeIcon={HiEllipsisHorizontal}
-        className="w-full"
+        icon={LuEllipsis}
+        activeIcon={LuEllipsis}
+        onClick={() => setSidebarSheetContentId("sidebar-more")}
+        href=""
       />
     </nav>
   )
 }
 
-export default NavLinkList
+export default SidebarNavLinkList
