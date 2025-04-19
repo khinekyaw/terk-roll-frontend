@@ -3,8 +3,9 @@ import { IconType } from "react-icons"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useSidebarStore } from "@/lib/store/sidebar-store"
+import { ComponentPropsWithoutRef } from "react"
 
-interface SidebarNavLinkProps {
+interface SidebarNavLinkProps extends ComponentPropsWithoutRef<'a'> {
   icon: IconType
   activeIcon: IconType
   title: string
@@ -46,6 +47,7 @@ export function SidebarNavLink({
       onClick={(e) => {
         if (onClick) {
           e.preventDefault()
+          e.stopPropagation()
           onClick()
         }
       }}

@@ -36,6 +36,7 @@ const NavLinkList = () => {
         href="/profile"
       />
       <SidebarNavLink
+        id="sidebar-more"
         icon={HiEllipsisHorizontal}
         activeIcon={HiEllipsisHorizontal}
         title={t("more")}

@@ -14,7 +14,7 @@ const SearchBar = () => {
         <Search className="w-5 h-5" />
       </div>
       <p className={cn(
-        "typo-body-sm text-gray-400 shrink-0 w-fit",
+        "typo-body-sm text-foreground/50 shrink-0 w-fit",
         sidebarSheetOpen && "hidden"
       )}>
         Search

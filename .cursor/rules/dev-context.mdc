@@ -21,8 +21,9 @@ alwaysApply: true
  - Stick to TanStack Query for all data-fetching logic
  - Skeleton UI + Empty + Error states for every async fetch
  - Prefer Zustand for global state
- - Always use font utility classes, avoid hard-coded styles
+ - Always use font utility classes we defined inside [globals.css](mdc:app/globals.css), avoid hard-coded styles
  - Shadcan package is called shadcn, not shadcn-ui, use example "npx shadcn@latest add component_name"
  - If a component or a page file become too long separate new components (Max line 300)
  - Write a unit test after a feature is implemented
  - If a screenshot or an image is provided, use existing fonts, colors to complement with current config. 
+ - Do not use tailwind color classes, we have custom colors in [globals.css](mdc:app/globals.css)
