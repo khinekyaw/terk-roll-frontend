@@ -1,48 +1,8 @@
-import { XIcon } from "lucide-react"
 import { useEffect, useRef } from "react"
-
 import { useSidebarStore } from "@/lib/store/sidebar-store"
 import { cn } from "@/lib/utils"
-import { Input } from "@/components/ui/input"
-
-const SidebarSheetHeader = ({ title }: { title?: string }) => {
-  const { setSidebarSheetContentId } = useSidebarStore()
-
-  return (
-    <div className="flex items-center justify-between w-full px-2 h-[4.375rem]">
-      <h5 className="typo-heading-h5">{title}</h5>
-      <button
-        onClick={() => {
-          setSidebarSheetContentId("")
-        }}
-        className="bg-muted-foreground/5 p-1 rounded-full hover:bg-muted-foreground/10 transition-colors"
-      >
-        <XIcon className="w-5 h-5" />
-      </button>
-    </div>
-  )
-}
-
-const SidebarMore = () => {
-  return (
-    <div>
-      <SidebarSheetHeader title="More" />
-    </div>
-  )
-}
-
-const SidebarSearch = () => {
-  return (
-    <div>
-      <SidebarSheetHeader title="Search" />
-      <Input
-        autoFocus
-        placeholder="Dynamic placeholder"
-        className="rounded-full px-4"
-      />
-    </div>
-  )
-}
+import { SidebarMore } from "./sidebar-more"
+import { SidebarSearch } from "./sidebar-search"
 
 const SidebarSheet = () => {
   const { sidebarSheetOpen, sidebarSheetContentId, setSidebarSheetContentId } =
@@ -54,7 +14,9 @@ const SidebarSheet = () => {
       if (
         ref.current &&
         !ref.current.contains(event.target as Node) &&
-        !["sidebar-more", "sidebar-search"].includes((event.target as HTMLElement).id)
+        !["sidebar-more", "sidebar-search"].includes(
+          (event.target as HTMLElement).id
+        )
       ) {
         setSidebarSheetContentId("")
       }
@@ -78,7 +40,7 @@ const SidebarSheet = () => {
         "transition-all duration-400 data-[open=true]:translate-x-0 data-[open=true]:opacity-100"
       )}
     >
-      <div className="border-border border-r w-full h-full p-2">
+      <div className="border-border border-r w-full h-full px-2 py-1">
         {sidebarSheetContentId === "sidebar-more" && <SidebarMore />}
         {sidebarSheetContentId === "sidebar-search" && <SidebarSearch />}
       </div>

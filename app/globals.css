@@ -147,10 +147,12 @@
     --font-size-body-md: 1rem;
     --font-size-body-sm: 0.875rem;
     --font-size-body-xs: 0.75rem;
+    --font-size-label-md: 0.9375rem;
 
     /* Line Heights */
     --line-height-heading: 1.2;
     --line-height-body: 1.6;
+    --line-height-label: 1.5;
   }
 
   /* Heading Styles */
@@ -221,6 +223,13 @@
   .typo-body-xs {
     font-size: var(--font-size-body-xs);
     line-height: var(--line-height-body);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .typo-label-md {
+    font-size: var(--font-size-label-md);
+    line-height: var(--line-height-label);
     font-weight: 400;
     letter-spacing: 0.01em;
   }
