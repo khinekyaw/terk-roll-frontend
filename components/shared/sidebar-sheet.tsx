@@ -1,8 +1,16 @@
 import { useEffect, useRef } from "react"
-import { useSidebarStore } from "@/lib/store/sidebar-store"
+import {
+  SIDEBAR_MORE,
+  SIDEBAR_MORE_DARK_MODE,
+  SIDEBAR_MORE_LANGUAGE,
+  SIDEBAR_SEARCH,
+  useSidebarStore,
+} from "@/lib/store/sidebar-store"
 import { cn } from "@/lib/utils"
-import { SidebarMore } from "./sidebar-more"
-import { SidebarSearch } from "./sidebar-search"
+import { SidebarMore } from "@/components/shared/sidebar-more"
+import { SidebarSearch } from "@/components/shared/sidebar-search"
+import { SidebarMoreLanguage } from "@/components/shared/sidebar-more-language"
+import { SidebarMoreDarkMode } from "@/components/shared/sidebar-more-dark-mode"
 
 const SidebarSheet = () => {
   const { sidebarSheetOpen, sidebarSheetContentId, setSidebarSheetContentId } =
@@ -14,7 +22,7 @@ const SidebarSheet = () => {
       if (
         ref.current &&
         !ref.current.contains(event.target as Node) &&
-        !["sidebar-more", "sidebar-search"].includes(
+        ![SIDEBAR_MORE, SIDEBAR_SEARCH].includes(
           (event.target as HTMLElement).id
         )
       ) {
@@ -41,8 +49,14 @@ const SidebarSheet = () => {
       )}
     >
       <div className="border-border border-r w-full h-full px-2 py-1">
-        {sidebarSheetContentId === "sidebar-more" && <SidebarMore />}
-        {sidebarSheetContentId === "sidebar-search" && <SidebarSearch />}
+        {sidebarSheetContentId === SIDEBAR_MORE && <SidebarMore />}
+        {sidebarSheetContentId === SIDEBAR_SEARCH && <SidebarSearch />}
+        {sidebarSheetContentId === SIDEBAR_MORE_LANGUAGE && (
+          <SidebarMoreLanguage />
+        )}
+        {sidebarSheetContentId === SIDEBAR_MORE_DARK_MODE && (
+          <SidebarMoreDarkMode />
+        )}
       </div>
     </aside>
   )

@@ -8,7 +8,7 @@ export const SidebarSearch = () => {
       <Input
         autoFocus
         placeholder="Dynamic placeholder"
-        className="rounded-full px-4 mt-1"
+        className="rounded-full px-4"
       />
     </div>
   )

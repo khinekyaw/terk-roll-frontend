@@ -1,5 +1,10 @@
 import { create } from "zustand"
 
+export const SIDEBAR_MORE = "sidebar-more"
+export const SIDEBAR_MORE_LANGUAGE = "sidebar-more/language"
+export const SIDEBAR_MORE_DARK_MODE = "sidebar-more/dark-mode"
+export const SIDEBAR_SEARCH = "sidebar-search"
+
 interface SidebarState {
   sidebarSheetContentId: string
   setSidebarSheetContentId: (id: string) => void
@@ -15,5 +20,3 @@ export const useSidebarStore = create<SidebarState>((set) => ({
     })),
   sidebarSheetOpen: false,
 }))
-// sidebarSheetContentId: get().sidebarSheetContentId === id ? "" : id,
-// sidebarSheetOpen: !Boolean(get().sidebarSheetContentId)

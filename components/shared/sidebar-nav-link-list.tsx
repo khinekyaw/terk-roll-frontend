@@ -9,7 +9,7 @@ import {
 } from "react-icons/hi2"
 import { LuEllipsis } from "react-icons/lu"
 
-import { useSidebarStore } from "@/lib/store/sidebar-store"
+import { SIDEBAR_MORE, useSidebarStore } from "@/lib/store/sidebar-store"
 import { SidebarNavLink } from "./sidebar-nav-link"
 
 const SidebarNavLinkList = () => {
@@ -37,11 +37,11 @@ const SidebarNavLinkList = () => {
         href="/profile"
       />
       <SidebarNavLink
-        id="sidebar-more"
+        id={SIDEBAR_MORE}
         title={t("more")}
         icon={LuEllipsis}
         activeIcon={LuEllipsis}
-        onClick={() => setSidebarSheetContentId("sidebar-more")}
+        onClick={() => setSidebarSheetContentId(SIDEBAR_MORE)}
         href=""
       />
     </nav>
