@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl"
 import { Fragment } from "react"
 import Link from "next/link"
 
-import NavLinkList from "@/components/shared/sidebar-nav-link-list"
+import NavLinkList from "@/components/shared/sidebar/sidebar-nav-link-list"
 import SearchBar from "@/components/shared/search-bar"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"

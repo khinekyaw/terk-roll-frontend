@@ -4,7 +4,7 @@ import { startTransition } from "react"
 import { useLocale } from "next-intl"
 
 import { usePathname, useRouter } from "@/i18n/navigation"
-import { getLocalesName, routing } from "@/i18n/routing"
+import { getLocaleName, routing } from "@/i18n/routing"
 import { SidebarMoreButton } from "./sidebar-more-button"
 import { SidebarSheetHeader } from "./sidebar-sheet-header"
 
@@ -33,7 +33,7 @@ export const SidebarMoreLanguage = () => {
       <div className="w-full flex flex-col gap-1">
         {routing.locales.map((cur) => (
           <SidebarMoreButton key={cur} onClick={() => switchLocale(cur)}>
-            {getLocalesName(cur)}{" "}
+            {getLocaleName(cur)}{" "}
             {cur === locale && (
               <Check className="w-5 h-5 text-muted-foreground" />
             )}

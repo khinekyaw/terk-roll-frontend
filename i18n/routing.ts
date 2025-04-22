@@ -1,11 +1,11 @@
 import { defineRouting } from "next-intl/routing"
 
-export const localesDict = {
+export const localesDict: {[key: string]: string} = {
   en: "English",
   my: "မြန်မာ",
 }
 
-export const getLocalesName = (key: keyof typeof localesDict) => {
+export const getLocaleName = (key: string) => {
   return localesDict[key]
 }
 

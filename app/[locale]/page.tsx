@@ -1,4 +1,3 @@
-import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Locale, useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -20,7 +19,6 @@ export default function Home({params}:Props) {
   return (
     <main>
       <Button>{t("login")}</Button>
-      <ThemeToggle />
     </main>
   );
 } 

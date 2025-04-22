@@ -7,10 +7,10 @@ import {
   useSidebarStore,
 } from "@/lib/store/sidebar-store"
 import { cn } from "@/lib/utils"
-import { SidebarMore } from "@/components/shared/sidebar-more"
-import { SidebarSearch } from "@/components/shared/sidebar-search"
-import { SidebarMoreLanguage } from "@/components/shared/sidebar-more-language"
-import { SidebarMoreDarkMode } from "@/components/shared/sidebar-more-dark-mode"
+import { SidebarMore } from "@/components/shared/sidebar/sidebar-more"
+import { SidebarSearch } from "@/components/shared/sidebar/sidebar-search"
+import { SidebarMoreLanguage } from "@/components/shared/sidebar/sidebar-more-language"
+import { SidebarMoreDarkMode } from "@/components/shared/sidebar/sidebar-more-dark-mode"
 
 const SidebarSheet = () => {
   const { sidebarSheetOpen, sidebarSheetContentId, setSidebarSheetContentId } =

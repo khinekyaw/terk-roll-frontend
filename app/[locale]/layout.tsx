@@ -3,7 +3,7 @@ import { Inter } from "next/font/google"
 import { hasLocale, NextIntlClientProvider } from "next-intl"
 import "../globals.css"
 import { ThemeProvider } from "@/components/shared/theme-provider"
-import { Sidebar } from "@/components/shared/sidebar"
+import { Sidebar } from "@/components/shared/sidebar/sidebar"
 import { routing } from "@/i18n/routing"
 import { notFound } from "next/navigation"
 
