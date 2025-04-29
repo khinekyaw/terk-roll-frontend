@@ -6,7 +6,7 @@ const VideoPostListing = () => {
     <div className="flex w-full h-full px-5 py-2">
       <div className="justify-center items-center flex flex-1 lg:pr-20">
         <VideoPost
-          videoUrl="/test.mp4"
+          videoUrl="https://videos.pexels.com/video-files/4057322/4057322-uhd_1440_2732_25fps.mp4"
           authorId="authorId"
           locationId="locationid"
           description="Happy Happy #description"
