@@ -1,4 +1,4 @@
-import VideoPost from "@/components/shared/video-post"
+import VideoPostListing from "@/components/shared/video-post-listing"
 import { Locale } from "next-intl"
 import { setRequestLocale } from "next-intl/server"
 import { use } from "react"
@@ -14,17 +14,8 @@ export default function Home({ params }: Props) {
   setRequestLocale(locale)
 
   return (
-    <main className="flex justify-center items-center h-screen py-2">
-      <VideoPost
-        videoUrl="/test.mp4"
-        authorId="authorId"
-        locationId="locationid"
-        description="Happy Happy #description"
-        likesCount={1000200}
-        commentsCount={1200}
-        bookmarksCount={900}
-        sharesCount={120000}
-      />
+    <main className="flex h-screen">
+      <VideoPostListing />
     </main>
   )
 }

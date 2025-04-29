@@ -30,8 +30,8 @@ const VideoPost: React.FC<VideoPostProps> = ({
   sharesCount,
 }) => {
   return (
-    <div className={cn("relative items-end gap-x-4 max-w-[50vw] w-full h-full flex")}>
-      <div className="rounded-3xl overflow-hidden border relative w-full h-full">
+    <div className={cn("relative items-end gap-x-4 w-fit h-full flex")}>
+      <div className="rounded-2xl overflow-hidden relative w-full h-full">
         <video
           src={videoUrl}
           autoPlay={true}
