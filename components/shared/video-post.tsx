@@ -1,12 +1,12 @@
-import { cn } from "@/lib/utils"
+import Link from "next/link"
 import React from "react"
 import { FaHeart } from "react-icons/fa6"
+
+import { cn } from "@/lib/utils"
+import { FaBookmark, FaShare } from "react-icons/fa"
+import { IoChatbubbleEllipses, IoLocationSharp } from "react-icons/io5"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import SocialActionButton from "./social-action-button"
-
-import Link from "next/link"
-import { FaBookmark, FaShare } from "react-icons/fa"
-import { IoChatbubbleEllipses } from "react-icons/io5"
 
 interface VideoPostProps {
   videoUrl: string
@@ -34,14 +34,28 @@ const VideoPost: React.FC<VideoPostProps> = ({
       <div className="rounded-2xl overflow-hidden relative w-full h-full">
         <video
           src={videoUrl}
-          autoPlay={true}
           playsInline={true}
+          autoPlay={true}
           controls={true}
           className="w-full h-full object-contain"
         ></video>
-        <div className="absolute">
-          <p>{locationId}</p>
-          <p>{description}</p>
+        <div className="absolute bottom-0 p-3 left-0 gap-y-1 flex flex-col right-0 text-[#ffffff] typo-body-sm bg-gradient-to-b from-transparent to-[#00000060]">
+          <Link
+            href={"/locations/" + locationId}
+            className="flex gap-x-1 w-fit items-center bg-[#00000040] rounded py-0.5 px-1"
+          >
+            <IoLocationSharp />
+            <p>{locationId}</p>
+          </Link>
+          <Link
+            href={"/profiles/" + authorId}
+            className="font-medium hover:underline"
+          >
+            {authorId}
+          </Link>
+          <div>
+            <p>{description}</p>
+          </div>
         </div>
       </div>
 
