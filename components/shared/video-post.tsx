@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import React from "react"
 import { FaHeart } from "react-icons/fa6"
@@ -7,6 +9,7 @@ import { FaBookmark, FaShare } from "react-icons/fa"
 import { IoChatbubbleEllipses, IoLocationSharp } from "react-icons/io5"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import SocialActionButton from "./social-action-button"
+import VideoPlayer from "./video-player"
 
 interface VideoPostProps {
   videoUrl: string
@@ -31,14 +34,14 @@ const VideoPost: React.FC<VideoPostProps> = ({
 }) => {
   return (
     <div className={cn("relative items-end gap-x-4 w-fit h-full flex")}>
-      <div className="rounded-2xl overflow-hidden relative w-full h-full">
-        <video
-          src={videoUrl}
-          playsInline={true}
-          autoPlay={true}
-          controls={true}
-          className="w-full h-full object-contain"
-        ></video>
+      <div className="relative h-full rounded-2xl overflow-hidden">
+        <VideoPlayer
+          url={videoUrl}
+          className="h-full"
+          width="576"
+          height="1024"
+        />
+
         <div className="absolute bottom-0 p-3 left-0 gap-y-1 flex flex-col right-0 text-[#ffffff] typo-body-sm bg-gradient-to-b from-transparent to-[#00000060]">
           <Link
             href={"/locations/" + locationId}
@@ -49,7 +52,7 @@ const VideoPost: React.FC<VideoPostProps> = ({
           </Link>
           <Link
             href={"/profiles/" + authorId}
-            className="font-medium hover:underline"
+            className="font-medium hover:underline w-fit"
           >
             {authorId}
           </Link>
